@@ -1,0 +1,15 @@
+{
+  "name": "ec-portfolio",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "ecazorla",
+    "portfolio"
+  ],
+  "author": "Esteban Cazorla",
+  "license": "MIT"
+}
