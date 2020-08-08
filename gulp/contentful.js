@@ -1,7 +1,7 @@
 const credentials = require('../config/contentful');
 
 // constants
-const folderToSaveFiles = 'content';
+const folderToSaveFiles = './content';
 
 const downloadPages = (Contentful, fs) => (cb) => {
 	const client = Contentful.createClient({
@@ -12,15 +12,15 @@ const downloadPages = (Contentful, fs) => (cb) => {
 		environment: 'master'
 	});
 
-	if (!fs.existsSync(`./${folderToSaveFiles}`)) {
-		throw new Error('No content folder found. Please create one first');
+	if (!fs.existsSync(folderToSaveFiles)) {
+		fs.mkdirSync(folderToSaveFiles);
 	}
 
 	client.getEntries()
 		.then((entries) => {
 			console.log('Data downloaded from Contentful');
 
-			const pagesDirectory = `./${folderToSaveFiles}/pages`;
+			const pagesDirectory = `${folderToSaveFiles}/pages`;
 			if (!fs.existsSync(pagesDirectory)) {
 				fs.mkdirSync(pagesDirectory);
 			}
@@ -30,12 +30,12 @@ const downloadPages = (Contentful, fs) => (cb) => {
 					const pageData = JSON.stringify(entry);
 					const pageName = entry.fields.url;
 
-					fs.writeFile(`./${folderToSaveFiles}/pages/${pageName}.json`, pageData, (err) => {
+					fs.writeFile(`${folderToSaveFiles}/pages/${pageName}.json`, pageData, (err) => {
 						if (err) {
 							throw err;
 						}
 
-						console.log(`Page data file created on /${folderToSaveFiles}/${pageName}`);
+						console.log(`Page data file created on ${folderToSaveFiles}/${pageName}`);
 					});
 				}
 			});

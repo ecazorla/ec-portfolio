@@ -1,6 +1,6 @@
 const cleanContentFolder = (removeFolderRecursively) => (cb) => {
-	removeFolderRecursively('./content/');
-	removeFolderRecursively('./site/');
+	removeFolderRecursively('./content/', true);
+	removeFolderRecursively('./site/', true);
 	cb();
 };
 
