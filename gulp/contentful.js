@@ -1,3 +1,5 @@
+'use strict';
+
 const credentials = require('../config/contentful');
 
 // constants

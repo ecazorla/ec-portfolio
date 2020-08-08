@@ -1,3 +1,5 @@
+'use strict';
+
 const templatePath = './src/templates/page.hbs';
 const pagesFolder = './content/pages';
 const siteFolder = './site';

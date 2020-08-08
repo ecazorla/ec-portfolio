@@ -1,3 +1,5 @@
+'use strict';
+
 // modules
 const Contentful = require('contentful');
 const Handlebars = require('handlebars');
