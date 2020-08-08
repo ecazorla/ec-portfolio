@@ -1,6 +1,6 @@
-const removeFolderRecursively = require('../functions/removeFolderRecursively');
-const cleanContentFolder = (cb) => {
+const cleanContentFolder = (removeFolderRecursively) => (cb) => {
 	removeFolderRecursively('./content/');
+	removeFolderRecursively('./site/');
 	cb();
 };
 

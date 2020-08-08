@@ -1,19 +1,17 @@
-const contentful = require('contentful');
 const credentials = require('../config/contentful');
-const fs = require('fs');
 
 // constants
 const folderToSaveFiles = 'content';
 
-const client = contentful.createClient({
-	// This is the space ID. A space is like a project folder in Contentful terms
-	space: credentials.space,
-	// This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-	accessToken: credentials.accessToken,
-	environment: 'master'
-});
+const downloadPages = (Contentful, fs) => (cb) => {
+	const client = Contentful.createClient({
+		// This is the space ID. A space is like a project folder in Contentful terms
+		space: credentials.space,
+		// This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+		accessToken: credentials.accessToken,
+		environment: 'master'
+	});
 
-const downloadPages = (cb) => {
 	if (!fs.existsSync(`./${folderToSaveFiles}`)) {
 		throw new Error('No content folder found. Please create one first');
 	}
