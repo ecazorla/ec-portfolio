@@ -8,6 +8,7 @@ const Handlebars = require('handlebars');
 const fs = require('fs');
 const NodeSass = require('node-sass');
 const Sass = require('gulp-sass');
+const Sourcemaps = require('gulp-sourcemaps');
 
 // functions
 const removeFolderRecursively = require('./functions/removeFolderRecursively');
@@ -17,7 +18,7 @@ const clean = require('./gulp/clean')(removeFolderRecursively);
 const connect = require('./gulp/connect')(Connect);
 const contentful = require('./gulp/contentful')(Contentful, fs);
 const handlebars = require('./gulp/handlebars')(fs, Handlebars);
-const sass = require('./gulp/sass')(Gulp, Sass, NodeSass);
+const sass = require('./gulp/sass')(Gulp, Sass, Sourcemaps, NodeSass);
 const { series } = require('gulp');
 
 // single tasks
