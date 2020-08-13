@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "npx eslint .; npx stylelint 'src/scss/style.scss'"
   },
   "keywords": [
     "ecazorla",
@@ -12,6 +12,12 @@
   ],
   "author": "Esteban Cazorla",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test",
+      "pre-push": "npm run test"
+    }
+  },
   "dependencies": {
     "contentful": "^7.14.6"
   },
@@ -23,6 +29,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
     "handlebars": "^4.7.6",
+    "husky": "^4.2.5",
     "node-sass": "^4.14.1",
     "stylelint": "^13.6.1",
     "stylelint-config-sass-guidelines": "^7.0.0",
