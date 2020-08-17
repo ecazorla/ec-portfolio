@@ -19,6 +19,7 @@ const clean = require('./gulp/clean')(removeFolderRecursively);
 const connect = require('./gulp/connect')(Connect);
 const contentful = require('./gulp/contentful')(Contentful, fs);
 const handlebars = require('./gulp/handlebars')(fs, Handlebars);
+const javascript = require('./gulp/javascript')(fs);
 const sass = require('./gulp/sass')(Gulp, Sass, Sourcemaps, NodeSass);
 const { series } = require('gulp');
 const stylelint = require('./gulp/stylelint')(Gulp, Stylelint);
@@ -28,6 +29,7 @@ exports.clean = clean;
 exports.connect = connect;
 exports.contentful = contentful;
 exports.handlebars = handlebars;
+exports.javascript = javascript;
 exports.sass = sass;
 exports.stylelint = stylelint;
 
