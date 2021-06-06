@@ -1,6 +1,7 @@
 'use strict';
 
-const credentials = require('../config/contentful');
+// modules
+require('dotenv').config();
 
 // constants
 const folderToSaveFiles = './content';
@@ -8,9 +9,9 @@ const folderToSaveFiles = './content';
 const downloadPages = (Contentful, fs) => (cb) => {
 	const client = Contentful.createClient({
 		// This is the space ID. A space is like a project folder in Contentful terms
-		space: credentials.space,
+		space: process.env.CF_SPACE,
 		// This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-		accessToken: credentials.accessToken,
+		accessToken: process.env.CF_TOKEN,
 		environment: 'master'
 	});
 
@@ -27,12 +28,12 @@ const downloadPages = (Contentful, fs) => (cb) => {
 				fs.mkdirSync(pagesDirectory);
 			}
 
-			entries.items.forEach(entry => {
+			for (const entry of entries.items) {
 				if (entry.sys.contentType.sys.id === 'page') {
 					const pageData = JSON.stringify(entry);
 					const pageName = entry.fields.url;
 
-					fs.writeFile(`${folderToSaveFiles}/pages/${pageName}.json`, pageData, (err) => {
+					fs.writeFileSync(`${folderToSaveFiles}/pages/${pageName}.json`, pageData, (err) => {
 						if (err) {
 							throw err;
 						}
@@ -40,13 +41,13 @@ const downloadPages = (Contentful, fs) => (cb) => {
 						console.log(`Page data file created on ${folderToSaveFiles}/${pageName}`);
 					});
 				}
-			});
+			}
 
 			cb();
 		})
 		.catch((err) => {
 			console.log(err);
-			cb();
+			cb(err);
 		});
 };
 

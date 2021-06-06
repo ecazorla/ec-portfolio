@@ -21,7 +21,7 @@ const contentful = require('./gulp/contentful')(Contentful, fs);
 const handlebars = require('./gulp/handlebars')(fs, Handlebars);
 const javascript = require('./gulp/javascript')(fs);
 const sass = require('./gulp/sass')(Gulp, Sass, Sourcemaps, NodeSass);
-const { series } = require('gulp');
+const { series, watch } = require('gulp');
 const stylelint = require('./gulp/stylelint')(Gulp, Stylelint);
 
 // single tasks
@@ -33,5 +33,13 @@ exports.javascript = javascript;
 exports.sass = sass;
 exports.stylelint = stylelint;
 
+// watchers
+exports.watch = () => {
+	watch('src/scss/**/*.scss', sass);
+	watch('src/partials/*.hbs', handlebars);
+	watch('src/templates/*.hbs', handlebars);
+};
+
 // default task
-exports.default = series(stylelint, clean, contentful, handlebars, sass, connect);
+exports.default = series(stylelint, clean, contentful, handlebars, sass, javascript, connect);
+exports.build = series(stylelint, clean, contentful, handlebars, sass, javascript);

@@ -1,7 +1,48 @@
 @import 'reset';
 
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&family=Open+Sans&display=swap');
+
+// vars
+$white: rgb(255, 255, 255);
+
 body {
-	p {
-		font-size: 18px;
+	background-image: linear-gradient(90deg, rgb(43, 77, 130) 0%, rgb(40, 144, 172) 100%);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: $white;
+	font-family: 'Open Sans', sans-serif;
+	min-height: 100vh;
+
+	.ec {
+		&-info {
+			display: flex;
+			flex-direction: column;
+			font-size: 18px;
+			height: 100vh;
+			justify-content: center;
+			text-align: center;
+			width: 100%;
+
+			h1 {
+				font-family: 'Mate SC', serif;
+				font-size: 45px;
+			}
+
+			h2 {
+				margin-top: 10px;
+			}
+
+			p {
+				margin-top: 5px;
+
+				a {
+					border-bottom: 1px $white dotted;
+					color: $white;
+					text-decoration: none;
+				}
+			}
+		}
 	}
 }
