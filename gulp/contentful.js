@@ -1,6 +1,7 @@
 'use strict';
 
-const credentials = require('../config/contentful');
+// modules
+require('dotenv').config();
 
 // constants
 const folderToSaveFiles = './content';
@@ -8,9 +9,9 @@ const folderToSaveFiles = './content';
 const downloadPages = (Contentful, fs) => (cb) => {
 	const client = Contentful.createClient({
 		// This is the space ID. A space is like a project folder in Contentful terms
-		space: credentials.space,
+		space: process.env.CF_SPACE,
 		// This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-		accessToken: credentials.accessToken,
+		accessToken: process.env.CF_TOKEN,
 		environment: 'master'
 	});
 
