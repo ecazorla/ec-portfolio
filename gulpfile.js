@@ -42,3 +42,4 @@ exports.watch = () => {
 
 // default task
 exports.default = series(stylelint, clean, contentful, handlebars, sass, javascript, connect);
+exports.build = series(stylelint, clean, contentful, handlebars, sass, javascript);
