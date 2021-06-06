@@ -3,6 +3,7 @@
 	"rules": {
 		"indentation": "tab",
 		"max-nesting-depth": 4,
+		"selector-max-compound-selectors": 4,
 		"number-leading-zero": null
 	}
 }
