@@ -20,6 +20,9 @@ const handlebars = (fs, Handlebars) => async (cb) => {
 		Handlebars.registerPartial(partialNameNoExtension, partialData);
 	}));
 
+	const faviconsData = fs.readFileSync('./site/favicons.hbs').toString();
+	Handlebars.registerPartial('favicons', faviconsData);
+
 	// Compiling pages
 	const pagesFiles = fs.readdirSync(pagesFolder);
 	await Promise.all(pagesFiles.map((pageName) => {

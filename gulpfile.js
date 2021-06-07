@@ -5,6 +5,7 @@ const Connect = require('gulp-connect');
 const Contentful = require('contentful');
 const Gulp = require('gulp');
 const Handlebars = require('handlebars');
+const Favicons = require('favicons');
 const fs = require('fs');
 const NodeSass = require('node-sass');
 const Sass = require('gulp-sass');
@@ -18,6 +19,7 @@ const removeFolderRecursively = require('./functions/removeFolderRecursively');
 const clean = require('./gulp/clean')(removeFolderRecursively);
 const connect = require('./gulp/connect')(Connect);
 const contentful = require('./gulp/contentful')(Contentful, fs);
+const favicon = require('./gulp/favicon')(Gulp, Favicons.stream);
 const handlebars = require('./gulp/handlebars')(fs, Handlebars);
 const javascript = require('./gulp/javascript')(fs);
 const sass = require('./gulp/sass')(Gulp, Sass, Sourcemaps, NodeSass);
@@ -28,6 +30,7 @@ const stylelint = require('./gulp/stylelint')(Gulp, Stylelint);
 exports.clean = clean;
 exports.connect = connect;
 exports.contentful = contentful;
+exports.favicon = favicon;
 exports.handlebars = handlebars;
 exports.javascript = javascript;
 exports.sass = sass;
@@ -41,5 +44,5 @@ exports.watch = () => {
 };
 
 // default task
-exports.default = series(stylelint, clean, contentful, handlebars, sass, javascript, connect);
-exports.build = series(stylelint, clean, contentful, handlebars, sass, javascript);
+exports.default = series(stylelint, clean, contentful, favicon, handlebars, sass, javascript, connect);
+exports.build = series(stylelint, clean, contentful, favicon, handlebars, sass, javascript);

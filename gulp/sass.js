@@ -7,8 +7,8 @@ const compileScss = (Gulp, Sass, Sourcemaps, NodeSass) => (cb) => {
 			outputStyle: 'compressed'
 		}).on('error', Sass.logError))
 		.pipe(Sourcemaps.write())
-		.pipe(Gulp.dest('./site/css'));
-	cb();
+		.pipe(Gulp.dest('./site/css'))
+		.on('end', cb);
 };
 
 module.exports = compileScss;
