@@ -9,6 +9,7 @@ const Favicons = require('favicons');
 const fs = require('fs');
 const NodeSass = require('node-sass');
 const Sass = require('gulp-sass');
+const Sitemap = require('sitemap');
 const Sourcemaps = require('gulp-sourcemaps');
 const Stylelint = require('gulp-stylelint');
 
@@ -23,6 +24,7 @@ const favicon = require('./gulp/favicon')(Gulp, Favicons.stream);
 const handlebars = require('./gulp/handlebars')(fs, Handlebars);
 const javascript = require('./gulp/javascript')(fs);
 const sass = require('./gulp/sass')(Gulp, Sass, Sourcemaps, NodeSass);
+const sitemap = require('./gulp/sitemap')(Sitemap, fs);
 const { series, watch } = require('gulp');
 const stylelint = require('./gulp/stylelint')(Gulp, Stylelint);
 
@@ -34,6 +36,7 @@ exports.favicon = favicon;
 exports.handlebars = handlebars;
 exports.javascript = javascript;
 exports.sass = sass;
+exports.sitemap = sitemap;
 exports.stylelint = stylelint;
 
 // watchers
@@ -44,5 +47,5 @@ exports.watch = () => {
 };
 
 // default task
-exports.default = series(stylelint, clean, contentful, favicon, handlebars, sass, javascript, connect);
-exports.build = series(stylelint, clean, contentful, favicon, handlebars, sass, javascript);
+exports.default = series(stylelint, clean, contentful, favicon, handlebars, sass, javascript, sitemap, connect);
+exports.build = series(stylelint, clean, contentful, favicon, handlebars, sass, sitemap, javascript);
