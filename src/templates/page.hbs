@@ -3,7 +3,13 @@
     <section class="ec-info">
         <h1>{{fields.title}}</h1>
         <h2>{{fields.subtitle}}</h2>
-        <p><a href="mailto:{{fields.email}}">{{fields.email}}</a></p>
+        <div class="ec-info-social">
+            {{#each fields.socialMedia.fields.entries}}
+                <a href="{{fields.link}}">
+                    {{> lookup componentName=(concat 'images/icon-' fields.icon)}}
+                </a>
+            {{/each}}
+        </div>
     </section>
 </main>
 {{> footer }}
