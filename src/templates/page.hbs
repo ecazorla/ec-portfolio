@@ -5,7 +5,7 @@
         <h2>{{fields.subtitle}}</h2>
         <div class="ec-info-social">
             {{#each fields.socialMedia.fields.entries}}
-                <a href="{{fields.link}}">
+                <a href="{{fields.link}}" target="_blank">
                     {{> lookup componentName=(concat 'images/icon-' fields.icon)}}
                 </a>
             {{/each}}
