@@ -5,9 +5,11 @@
 
 // vars
 $white: rgb(255, 255, 255);
+$blue-back: rgb(43, 77, 130);
+$blue-light-back: rgb(40, 144, 172);
 
 body {
-	background-image: linear-gradient(90deg, rgb(43, 77, 130) 0%, rgb(40, 144, 172) 100%);
+	background-image: linear-gradient(90deg, $blue-back 0%, $blue-light-back 100%);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -46,10 +48,18 @@ body {
 
 					svg {
 						height: 40px;
+						opacity: 1;
+						transition: opacity .3s;
 						width: 40px;
+
 
 						path {
 							fill: $white;
+						}
+
+						&:hover {
+							opacity: .3;
+							transition: opacity .5s;
 						}
 					}
 				}
