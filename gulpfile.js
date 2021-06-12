@@ -44,6 +44,7 @@ exports.watch = () => {
 	watch('src/scss/**/*.scss', sass);
 	watch('src/partials/*.hbs', handlebars);
 	watch('src/templates/*.hbs', handlebars);
+	watch('src/js/*.js', javascript);
 };
 
 // default task
