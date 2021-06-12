@@ -36,6 +36,18 @@ html {
                 @include dark-mode-transition;
                 opacity: 1;
             }
+
+            &-switch {
+                &-box {
+                    .icon-moon {
+                        display: block;
+                    }
+
+                    .icon-sun {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 }

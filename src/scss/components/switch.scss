@@ -1,0 +1,72 @@
+@import '../vars';
+
+.ec-switch {
+    label {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    input {
+        display: none;
+
+        &:checked ~ label {
+
+            .ec-switch-box {
+                background-color: $blue-back;
+
+                &-interior {
+                    left: 5.5rem;
+                    transition: left .1s linear;
+                }
+            }
+        }
+    }
+
+    &-box {
+        background-color: gainsboro;
+        border-radius: 2.5rem;
+        cursor: pointer;
+        height: 5rem;
+        position: relative;
+        width: 10rem;
+
+        &-interior {
+            background-color: $white;
+            border-radius: 2rem;
+            display: block;
+            height: 3.8rem;
+            left: .7rem;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            transition: left .1s linear;
+            width: 3.8rem;
+        }
+
+        .icon-moon {
+            display: none;
+            height: 50%;
+            position: absolute;
+            left: 1.5rem;
+            top: 25%;
+
+            path {
+                fill: $white;
+            }
+        }
+
+        .icon-sun {
+            display: block;
+            height: 60%;
+            position: absolute;
+            right: 1.2rem;
+            top: 20%;
+
+            path {
+                fill: $orange;
+            }
+        }
+    }
+}

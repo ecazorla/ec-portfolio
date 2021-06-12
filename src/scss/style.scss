@@ -1,19 +1,13 @@
 @import 'reset';
+@import 'vars';
 @import 'dark';
 @import 'mixins';
 
+// components
+@import 'components/switch';
+
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&family=Open+Sans&display=swap');
-
-// vars
-$white: rgb(255, 255, 255);
-$blue-back: rgb(43, 77, 130);
-$blue-light-back: rgb(40, 144, 172);
-$yellow: #eace96;
-$orange: #e6b34e;
-$caki: #635b4b;
-$brown: #665023;
-$main: $brown;
 
 // break-points
 $ec-med: 768px;
@@ -100,9 +94,9 @@ body {
 		}
 
 		&-mode {
-			bottom: 10vh;
+			bottom: 2rem;
 			position: absolute;
-			right: 10vw;
+			right: 2rem;
 
 			input {
 				transform: scale(2);
@@ -166,6 +160,11 @@ body {
 				svg {
 					height: 75vh;
 				}
+			}
+
+			&-mode {
+				bottom: initial;
+				top: 2rem;
 			}
 		}
 	}
