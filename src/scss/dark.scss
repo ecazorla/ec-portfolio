@@ -1,0 +1,41 @@
+@import 'mixins';
+
+$blue-back-dark: rgb(43, 77, 130);
+$blue-light-back-dark: rgb(40, 144, 172);
+$white: rgb(255, 255, 255);
+
+html {
+    body.dark {
+        @include dark-mode-transition;
+        color: $white;
+
+        .ec {
+            &-info {
+			    &-social {
+                    a {
+                        svg {
+                            path {
+                                @include dark-mode-transition;
+                                fill: $white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-image {
+                svg {
+                    .cls-7 {
+                        @include dark-mode-transition;
+                        fill: $blue-back-dark;
+                    }
+                }
+            }
+
+            &-background-dark {
+                @include dark-mode-transition;
+                opacity: 1;
+            }
+        }
+    }
+}
