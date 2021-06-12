@@ -126,14 +126,15 @@ body {
 	body {
 		.ec {
 			&-info {
+				height: 100vh;
 				transform: translateX(8vw);
 			}
 
 			&-image {
-				left: 30vw;
+				left: 25vw;
 
 				svg {
-					height: 70vh;
+					height: 75vh;
 				}
 			}
 		}
