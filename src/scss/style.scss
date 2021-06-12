@@ -7,13 +7,26 @@
 $white: rgb(255, 255, 255);
 $blue-back: rgb(43, 77, 130);
 $blue-light-back: rgb(40, 144, 172);
+$yellow: #eace96;
+$orange: #e6b34e;
+$caki: #635b4b;
+$brown: #665023;
+$main: $brown;
+
+// break-points
+$ec-med: 768px;
+$ec-lrg: 1200px; // large
+
+html {
+	font-size: 62.5%;
+}
 
 body {
-	background-image: linear-gradient(90deg, $blue-back 0%, $blue-light-back 100%);
+	background-image: linear-gradient(90deg, $yellow 0%, $orange 100%);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	color: $white;
+	color: $main;
 	font-family: 'Open Sans', sans-serif;
 	min-height: 100vh;
 	padding: 0 20px;
@@ -22,39 +35,39 @@ body {
 		&-info {
 			display: flex;
 			flex-direction: column;
-			font-size: 18px;
-			height: 100vh;
+			font-size: 1.8rem;
+			height: 60vh;
 			justify-content: center;
 			text-align: center;
 			width: 100%;
 
 			h1 {
 				font-family: 'Mate SC', serif;
-				font-size: 45px;
+				font-size: 4.5rem;
 			}
 
 			h2 {
-				margin-top: 10px;
+				margin-top: 1rem;
 			}
 
 			&-social {
 				display: flex;
 				flex-direction: row;
 				justify-content: center;
-				margin-top: 30px;
+				margin-top: 3rem;
 
 				a {
 					margin: 0 5px;
 
 					svg {
-						height: 40px;
+						height: 4rem;
 						opacity: 1;
 						transition: opacity .3s;
-						width: 40px;
+						width: 4rem;
 
 
 						path {
-							fill: $white;
+							fill: $main;
 						}
 
 						&:hover {
@@ -64,14 +77,63 @@ body {
 					}
 				}
 			}
+		}
 
-			p {
-				margin-top: 5px;
+		&-image {
+			bottom: 2vh;
+			left: 5vw;
+			position: absolute;
+			z-index: -1;
 
-				a {
-					border-bottom: 1px $white dotted;
-					color: $white;
-					text-decoration: none;
+			svg {
+				height: 50vh;
+			}
+		}
+
+		p {
+			margin-top: .5rem;
+
+			a {
+				border-bottom: 1px $main dotted;
+				color: $main;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// Tablet styling
+@media (min-width: $ec-med) {
+	html {
+		font-size: 80%;
+	}
+
+	body {
+		.ec {
+			&-image {
+				left: 10vw;
+
+				svg {
+					height: 55vh;
+				}
+			}
+		}
+	}
+}
+
+// Desktop styling
+@media (min-width: $ec-lrg) {
+	body {
+		.ec {
+			&-info {
+				transform: translateX(8vw);
+			}
+
+			&-image {
+				left: 30vw;
+
+				svg {
+					height: 70vh;
 				}
 			}
 		}
