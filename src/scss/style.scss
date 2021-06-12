@@ -38,7 +38,7 @@ body {
 			font-size: 1.8rem;
 			height: 60vh;
 			justify-content: center;
-			text-align: center;
+			text-align: right;
 			width: 100%;
 
 			h1 {
@@ -53,7 +53,7 @@ body {
 			&-social {
 				display: flex;
 				flex-direction: row;
-				justify-content: center;
+				justify-content: flex-end;
 				margin-top: 3rem;
 
 				a {
@@ -110,6 +110,14 @@ body {
 
 	body {
 		.ec {
+			&-info {
+				text-align: center;
+
+				&-social {
+					justify-content: center;
+				}
+			}
+
 			&-image {
 				left: 10vw;
 
